@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+
+/* @theme {
+  --color-pink-bg: #E96BB3;
+  --color-cream-bg: #F2EDE3;
+  --color-black-bg: #232323;
+  --color-btn-bg: #D22FC6;
+  --color-green-bg-2: #657558;
+  --color-green-bg-1: #a3b095;
+} */
+
+@theme {
+  --color-pink-bg: #E96BB3;
+  --color-cream-bg: #F2EDE3;
+  --color-black-bg: #232323;
+  --color-btn-bg: #D22FC6;
+  --color-green-bg-2: #657558;
+  --color-green-bg-1: #a3b095;
+
+  /* Buttons */
+  --color-btn-primary-bg: #FFB648;
+  --color-btn-primary-text: #0F1115;
+  --color-btn-primary-hover-bg: #E09F40;
+  --color-btn-secondary-bg: transparent;
+  --color-btn-secondary-border: #FFB648;
+  --color-btn-secondary-text: #FFB648;
+
+  /* Text */
+  --color-text-heading: #F6F4F2;
+  --color-text-body: #C7C7C7;
+  --color-text-muted: #9A9A9A;
+
+  /* Inputs */
+  --color-input-bg: #1A1D22;
+  --color-input-border: #2A2F37;
+  --color-input-focus-border: #FFB648;
+  --color-input-text: #F6F4F2;
+
+  /* Dividers & Borders */
+  --color-border-default: #2A2F37;
+  --color-border-card: #1E2228;
+  --color-divider-soft: #1C1F25;
+
+  /* Background */
+  --color-bg-midnight-ink: #0F1115; /* Main website background */
+  --color-bg-soft-charcoal: #1A1D22; /* Cards, sections, panels */
+
+  /* Light Neutrals (Contrast + Readability) */
+  --color-parchment-white: #F6F4F2; /* Text on dark backgrounds */
+  --color-muted-ivory: #E8E5E1;    /* Light section backgrounds */
+  --color-light-ash: #C7C7C7;      /* Secondary text or descriptions */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-parchment-white);
+  /* color: var(--color-parchment-white) */
+}
+
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
