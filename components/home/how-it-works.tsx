@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function HowItWorks() {
 
   return (
-    <section className={`how-it-works relative w-full bg-cream-bg dark:bg-black-bg min-h-[70vh] mt-16 md:px-10 px-5 py-8 flex items-center ${raleway.className}`}>
+    <section className={`how-it-works relative w-full min-h-[70vh] mt-16 md:px-10 px-5 py-8 flex items-center ${raleway.className}`}>
       <div className="how-it-works__inner md:max-w-[1440px] w-full mx-auto">
         <div className="how-it-works__inner_header text-center mb-16">
           <h2 className="text-5xl font-bold mb-2">How Composite NFTs Work</h2>

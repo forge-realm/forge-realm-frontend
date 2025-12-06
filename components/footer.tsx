@@ -11,8 +11,8 @@ import Image from "next/image";
 import { raleway } from "@/app/layout";
 
 const socialLinks = [
-  { alt: "Twitter logo", src: "https://img.icons8.com/color/F2EDE3/48/twitterx--v1.png" },
-  { alt: "GitHub logo", src: "https://img.icons8.com/ios-filled/F2EDE3/50/github.png" },
+  { alt: "Twitter logo", src: "https://img.icons8.com/color/F2EDE3/48/twitterx--v1.png", link: "https://x.com/_forgerealm" },
+  { alt: "GitHub logo", src: "https://img.icons8.com/ios-filled/F2EDE3/50/github.png", link: "https://github.com/forge-realm" },
 ];
 
 const exploreLinks = [
@@ -47,12 +47,13 @@ export default function Footer() {
 
               <div className="flex items-start gap-2.5">
                 {socialLinks.map((social, index) => (
+                  <Link key={index} href={social.link} target="_blank">
                   <img
-                    key={index}
                     className="w-8 h-8"
                     alt={social.alt}
                     src={social.src}
                   />
+                  </Link>
                 ))}
               </div>
             </div>

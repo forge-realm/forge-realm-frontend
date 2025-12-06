@@ -4,7 +4,7 @@ import { Nft } from "@/data/nft"
 export default function Card({ nft }: { nft: Nft }) {
   return (
     <div
-      className="bg-white w-[350px] h-[450px] rounded-2xl shadow-md hover:shadow-lg transition p-4 flex flex-col"
+      className="bg-white w-[350px] h-[450px] rounded-2xl shadow-sm hover:shadow-lg transition p-4 flex flex-col border border-gray-100"
     >
       <div className="relative w-full aspect-square mb-3 overflow-hidden rounded-xl">
         <img

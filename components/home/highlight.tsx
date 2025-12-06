@@ -14,7 +14,7 @@ export default function Highlight() {
   }
 
   return (
-    <section className={`highlight relative w-full bg-cream-bg dark:bg-black-bg min-h-[70vh] my-16 md:px-10 px-5 py-8 flex items-center ${raleway.className}`}>
+    <section className={`highlight relative w-full min-h-[70vh] my-16 md:px-10 px-5 py-8 flex items-center ${raleway.className}`}>
       <div className="highlight__inner flex items-center justify-center gap-16 flex-wrap max-w-[1440px] mx-auto">
         <div className="highlight__inner_card">
           <Card nft={nfts[0]} />

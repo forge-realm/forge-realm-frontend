@@ -24,8 +24,17 @@ export default function Hero(): JSX.Element {
         </div>
 
         <div className="hero__header_button flex border border-pink-bg w-fit rounded-[18px] mt-8 md:pr-4 pr-2">
-          <Link
+          {/* <Link
             href="/auth"
+            className="bg-btn-bg md:min-w-[170px] w-fit text-cream-bg rounded-l-[12px] rounded-r-[28px] p-4 text-center"
+            aria-label="Get Started - Connect your wallet to begin on Forge Realm"
+            title="Get Started with Forge Realm"
+            prefetch={false}
+          >
+            <span>Get Started</span>
+          </Link> */}
+          <Link
+            href="/coming-soon"
             className="bg-btn-bg md:min-w-[170px] w-fit text-cream-bg rounded-l-[12px] rounded-r-[28px] p-4 text-center"
             aria-label="Get Started - Connect your wallet to begin on Forge Realm"
             title="Get Started with Forge Realm"

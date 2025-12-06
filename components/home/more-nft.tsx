@@ -9,7 +9,7 @@ const sampleNftCards: Nft[] = nfts.slice(0, 6);
 
 export default function MoreNfts () {
   return (
-    <section className={`max-w-[1440px] mx-auto md:px-10 px-5 py-12 bg-cream-bg dark:bg-black-bg min-h-[70vh] ${raleway.className}`}>
+    <section className={`max-w-[1440px] mx-auto md:px-10 px-5 py-12 min-h-[70vh] ${raleway.className}`}>
       <div className="more-nft__header">
         <h2 className="text-5xl font-bold">Discover</h2>
         <p className="md:text-lg text-[1rem] text-black-bg dark:text-cream-bg mt-2">

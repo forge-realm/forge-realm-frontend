@@ -11,9 +11,9 @@ import Image from "next/image";
 import Logo from "./logo";
 
 const navigationItems = [
-  { label: "Marketplace", url: "/marketplace" },
-  { label: "Rankings", url: "/rankings" },
-  { label: "Dashboard", url: "/dashboard" }
+  { label: "Marketplace", url: "/coming-soon" },
+  { label: "Rankings", url: "/coming-soon" },
+  { label: "Dashboard", url: "/coming-soon" }
 ];
 
 export default function Navbar(): JSX.Element {
@@ -25,13 +25,6 @@ export default function Navbar(): JSX.Element {
     <nav className="flex items-center justify-between bg-app-background w-full max-w-[1440px] mx-auto md:mt-20 mt-5 md:px-0 px-5">
       {/* Logo */}
       <div className="logo bg-parchment-white w-fit h-[70px] px-4 dark:bg-black-bg rounded-t-[8px] flex items-center justify-center">
-        {/* <Link href="/" className={`${raleway.className} block font-bold uppercase text-2xl`}>
-            <Image className="md:hidden block" width={35} height={35} src="/assets/icons/logo.png" alt="Forge realm logo" />
-          <span className="md:block hidden">
-            <span className="text-pink-bg">
-              forge</span> realm
-          </span>
-        </Link> */}
         <Logo />
       </div>
 
@@ -48,8 +41,19 @@ export default function Navbar(): JSX.Element {
 
       {/* Connect Wallet Button */}
       <div className="auth-button w-fit h-[70px] px-4 bg-parchment-white dark:bg-black-bg rounded-t-[8px] md:flex hidden items-center md:text-lg text-[1rem] font-bold">
-        <Link
+        {/* <Link
           href="/auth"
+          aria-label="Connect your wallet to get started"
+          role="button"
+          tabIndex={0}
+          title="Connect your wallet to get started"
+          className="px-4 py-2"
+        >
+          Get Started
+        </Link> */}
+
+        <Link
+          href="/coming-soon"
           aria-label="Connect your wallet to get started"
           role="button"
           tabIndex={0}
