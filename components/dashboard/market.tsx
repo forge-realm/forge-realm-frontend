@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { raleway, inter } from "@/app/layout";
+import { raleway, inter } from "@/lib/fonts";
 import Card from "../ui/card";
 import { CardProp } from "@/interface/nft";
 import Link from "next/link";

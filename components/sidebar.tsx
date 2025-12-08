@@ -4,7 +4,7 @@ import { useState } from "react";
 import Logo from "./logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { raleway } from "@/app/layout";
+import { raleway } from "@/lib/fonts";
 // #0247ae
 
 const sidebarNav = [

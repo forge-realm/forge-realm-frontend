@@ -1,6 +1,6 @@
 "use client"
 
-import { raleway } from "@/app/layout";
+import { raleway } from "@/lib/fonts";
 import Card from "../ui/card";
 import { type Nft, nfts } from "@/data/nft";
 

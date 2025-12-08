@@ -1,6 +1,6 @@
 "use client"
 
-import { raleway } from "@/app/layout"
+import { raleway } from "@/lib/fonts"
 import { Search, User } from "lucide-react"
 import { usePushWalletContext, PushUniversalAccountButton, PushUI } from "@pushchain/ui-kit"
 import { useEffect } from "react";

@@ -35,6 +35,13 @@ const nextConfig: NextConfig = {
       }
     ],
   },
+  // serverExternalPackages: [
+  //   'pino',
+  //   'thread-stream',
+  //   '@walletconnect/ethereum-provider',
+  //   '@walletconnect/logger',
+  //   '@pushchain/ui-kit'
+  // ],
 }
 
 export default nextConfig;

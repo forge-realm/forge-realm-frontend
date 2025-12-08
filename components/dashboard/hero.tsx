@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { inter, raleway } from "@/app/layout";
+import { inter, raleway } from "@/lib/fonts";
 
 export default function DashboardHero() {
   const statsItems = [

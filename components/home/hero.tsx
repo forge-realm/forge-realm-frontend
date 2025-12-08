@@ -1,7 +1,7 @@
 import { JSX } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { raleway } from "@/app/layout";
+import { raleway } from "@/lib/fonts";
 
 export default function Hero(): JSX.Element {
   return (

@@ -1,6 +1,6 @@
 "use client"
 
-import { raleway } from "@/app/layout";
+import { raleway } from "@/lib/fonts";
 import Image from "next/image";
 
 export default function HowItWorks() {

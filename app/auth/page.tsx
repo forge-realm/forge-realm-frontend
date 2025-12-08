@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { raleway } from "../layout";
+import { raleway } from "@/lib/fonts";
 import {Wallet} from "lucide-react";
 import { PushUniversalAccountButton, PushUI, usePushWalletContext } from "@pushchain/ui-kit";
 import { useAppDispatch } from "@/lib/hooks";

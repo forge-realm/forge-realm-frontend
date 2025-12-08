@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { MenuIcon, Wallet } from "lucide-react"
 import { usePushWalletContext } from "@pushchain/ui-kit";
 import { useState } from "react";
-import { raleway } from "@/app/layout";
+import { raleway } from "@/lib/fonts";
 import Image from "next/image";
 import Logo from "./logo";
 

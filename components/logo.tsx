@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { raleway } from "@/app/layout"
+import { raleway } from "@/lib/fonts"
 import Image from "next/image"
 
 export default function Logo() {

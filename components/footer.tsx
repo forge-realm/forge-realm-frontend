@@ -8,7 +8,7 @@ import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
 import Image from "next/image";
-import { raleway } from "@/app/layout";
+import { raleway } from "@/lib/fonts";
 
 const socialLinks = [
   { alt: "Twitter logo", src: "https://img.icons8.com/color/F2EDE3/48/twitterx--v1.png", link: "https://x.com/_forgerealm" },
