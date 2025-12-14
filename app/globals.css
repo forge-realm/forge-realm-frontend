@@ -43,18 +43,26 @@
   --color-divider-soft: #1C1F25;
 
   /* Background */
-  --color-bg-midnight-ink: #0F1115; /* Main website background */
-  --color-bg-soft-charcoal: #1A1D22; /* Cards, sections, panels */
+  --color-midnight-ink: #0F1115; /* Main website background */
+  --color-soft-charcoal: #1A1D22; /* Cards, sections, panels */
 
   /* Light Neutrals (Contrast + Readability) */
   --color-parchment-white: #F6F4F2; /* Text on dark backgrounds */
   --color-muted-ivory: #E8E5E1;    /* Light section backgrounds */
   --color-light-ash: #C7C7C7;      /* Secondary text or descriptions */
+
+
+  /* Fonts */
+  --font-inter: "Inter", "sans-serif";
+  --font-raleway: "Raleway", "sans-serif";
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--color-parchment-white);
+  background: var(--color-soft-charcoal);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
   /* color: var(--color-parchment-white) */
 }
 

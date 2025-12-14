@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /* config options here */
   images: {
     remotePatterns: [
       {
@@ -35,6 +36,12 @@ const nextConfig: NextConfig = {
       }
     ],
   },
-}
+  serverExternalPackages: [
+    'pino',
+    'thread-stream',
+    '@walletconnect/logger',
+    '@walletconnect/ethereum-provider',
+  ],
+};
 
 export default nextConfig;

@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { raleway, inter } from "@/app/layout";
 import Card from "../ui/card";
-import { CardProp } from "@/interface/nft";
 import Link from "next/link";
 import { type Nft, nfts } from "@/data/nft";
 
@@ -9,7 +6,7 @@ const sampleNfts: Nft[] = nfts.slice(0, 12);
 
 export default function DashboardMarket() {
   return (
-    <section className={`w-full my-4 ${raleway.className}`}>
+    <section className={`w-full my-4 font-raleway text-parchment-white`}>
       {/* Market Overview Stats */}
       <div
         className={`market-overview__header w-full mb-16 flex gap-4 items-center justify-between`}

@@ -1,3 +1,5 @@
+"use client"
+
 import DashboardHero from "@/components/dashboard/hero";
 import DashboardMarket from "@/components/dashboard/market";
 

@@ -14,6 +14,9 @@ import { usePushWalletContext } from "@pushchain/ui-kit";
 import { useEffect } from "react";
 import { walletConnected } from "@/lib/features/user/userSlice";
 import { setLoadingState } from "@/lib/features/ui/uiSlice";
+import Statistics from "@/components/home/statistics";
+import FeaturedCollections from "@/components/home/featured-collections";
+import Benefits from "@/components/home/benefits";
 
 export default function Home() {
   // const [file, setFile] = useState<File>();
@@ -68,9 +71,12 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <Statistics />
       <Highlight />
+      <FeaturedCollections />
       <MoreNfts />
       <HowItWorks />
+      <Benefits />
       <Footer />
     </main>
   );

@@ -1,6 +1,6 @@
 "use client"
 
-import { raleway } from "@/app/layout"
+import { raleway } from "@/lib/fonts"
 import { Search, User } from "lucide-react"
 import { usePushWalletContext, PushUniversalAccountButton, PushUI } from "@pushchain/ui-kit"
 import { useEffect } from "react";
@@ -17,7 +17,7 @@ export default function DashboardNavbar() {
   }, [connectionStatus])
 
   return (
-    <nav className={` ${raleway.className} flex items-center justify-between px-3 py-2 bg-white border-b border-gray-200 rounded-full fixed top-4 left-[55%] -translate-x-[50%] lg:w-[1080px] shadow-sm w-full z-10`}>
+    <nav className={` ${raleway.className} flex items-center justify-between px-3 py-2 bg-midnight-ink rounded-full fixed top-4 left-[55%] -translate-x-[50%] lg:w-[1080px] shadow-sm w-full z-10`}>
 
       {/* Search Bar */}
       <form
@@ -25,7 +25,7 @@ export default function DashboardNavbar() {
         method="GET"
         role="search"
         aria-label="Sitewide"
-        className="flex items-center flex-1 max-w-md rounded-full bg-gray-100 px-4 py-2 border-none outline-none"
+        className="flex items-center flex-1 max-w-md rounded-full bg-cream-bg px-4 py-2 border-none outline-none"
       >
         <label htmlFor="dashboard-search" className="sr-only">
           Search dashboard
@@ -62,7 +62,7 @@ export default function DashboardNavbar() {
         </button>
         {/* User Icon with wallet address and dropdown */}
         <div
-          className="flex items-center gap-2 rounded-full px-2 py-1 focus:outline-none focus:ring-2 focus:ring-pink-bg transition group bg-gray-100 hover:bg-gray-200 relative"
+          className="flex items-center gap-2 rounded-full px-2 py-1 focus:outline-none focus:ring-2 focus:ring-pink-bg transition group bg-cream-bg relative"
           tabIndex={0}
           aria-label="Account menu"
           aria-haspopup="true"
