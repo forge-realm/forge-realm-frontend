@@ -41,7 +41,7 @@ export default function Sidebar() {
   return (
     <div className={`${raleway.className}`}>
       {/* Sidebar for desktop */}
-      <aside className="hidden md:flex gap-y-10 flex-col bg-white w-76 min-h-screen p-6 space-y-6">
+      <aside className="hidden md:flex gap-y-10 flex-col bg-midnight-ink text-parchment-white w-76 min-h-screen p-6 space-y-6">
         <Logo />
         <nav className="flex flex-col gap-8">
           {sidebarNav.map((nav) => (
@@ -50,7 +50,7 @@ export default function Sidebar() {
               <ul className="flex flex-col">
                 {nav.links.map((link) => (
                   <li key={link.name} className="">
-                    <Link href={link.href} className={`block w-full p-2 ${pathname === link.href ? "text-cream-bg bg-pink-bg rounded-[8px] font-medium" : "text-black-bg"}`}>{link.name}</Link>
+                    <Link href={link.href} className={`block w-full p-2 ${pathname === link.href ? "text-parchment-white bg-pink-bg rounded-[8px] font-medium" : "text-cream-bg"}`}>{link.name}</Link>
                   </li>
                 ))}
               </ul>

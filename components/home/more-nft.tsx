@@ -1,18 +1,18 @@
-"use client"
-
-import { raleway } from "@/lib/fonts";
+import React from "react";
+import { nfts } from "@/data/nft";
 import Card from "../ui/card";
-import { type Nft, nfts } from "@/data/nft";
+import { raleway } from "@/lib/fonts";
 
-const sampleNftCards: Nft[] = nfts.slice(0, 6);
+const sampleNftCards = nfts.slice(0, 4);
 
-
-export default function MoreNfts () {
+export default function MoreNfts() {
   return (
-    <section className={`max-w-[1440px] mx-auto md:px-10 px-5 py-12 min-h-[70vh] ${raleway.className}`}>
-      <div className="more-nft__header">
-        <h2 className="text-5xl font-bold">Discover</h2>
-        <p className="md:text-lg text-[1rem] text-black-bg dark:text-cream-bg mt-2">
+    <section
+      className={`md:px-10 px-5 py-12 min-h-[70vh] text-parchment-white ${raleway.className}`}
+    >
+      <div className="more-nft__header text-center mb-8">
+        <h2 className="md:text-5xl text-4xl font-bold">Discover</h2>
+        <p className="md:text-lg text-[1rem] text-cream-bg mt-2">
           Explore a curated selection of unique NFTs from innovative artists and collections.
         </p>
       </div>
@@ -24,4 +24,4 @@ export default function MoreNfts () {
       </div>
     </section>
   );
-};
+}

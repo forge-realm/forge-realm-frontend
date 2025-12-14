@@ -17,7 +17,7 @@ export default function DashboardLayout({
 }) {
   useConnectionRedirect();
   return (
-    <div className="flex min-h-screen bg-parchment-white">
+    <div className="flex min-h-screen bg-soft-charcoal">
       <Sidebar />
       <main className="flex-1 p-6 max-h-screen relative overflow-auto">
         <DashboardNavbar />

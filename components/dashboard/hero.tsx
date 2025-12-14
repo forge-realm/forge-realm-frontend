@@ -34,7 +34,7 @@ export default function DashboardHero() {
       className={`flex md:flex-nowrap flex-wrap gap-8 justify-between mb-8 text-white w-full ${raleway.className}`}
     >
       {/* Hero Text */}
-      <div className="p-12 rounded-[16px] md:w-[60%] w-full h-fit bg-[url(/assets/images/gradient-bg.png)] bg-no-repeat bg-cover bg-bottom-right border">
+      <div className="p-12 rounded-[16px] md:w-[60%] w-full h-fit bg-[url(/assets/images/gradient-bg.png)] bg-no-repeat bg-cover bg-bottom-right">
         <h1 className="text-3xl md:text-6xl leading-[120%] font-bold mb-3">
           Discover, Create and Sell Your Own NFT.
         </h1>
@@ -58,12 +58,12 @@ export default function DashboardHero() {
         </div>
       </div>
 
-      <div className="flex flex-wrap md:justify-start justify-center gap-6 md:w-[40%] w-full h-full text-black-bg">
+      <div className="flex flex-wrap md:justify-start justify-center gap-6 md:w-[40%] w-full h-full text-parchment-white">
         {/* Total Earnings from NFT Sales */}
         {statsItems.map((item, index) => (
           <div
             key={index}
-            className="bg-white backdrop-blur-sm rounded-[16px] border border-gray-100 p-6 md:w-[45%] w-[250px]"
+            className="bg-midnight-ink backdrop-blur-sm rounded-[16px] border border-gray-900 p-6 md:w-[45%] w-[250px]"
           >
             <p className="text-lg font-semibold mb-2">{item.label}</p>
             <p
@@ -75,7 +75,7 @@ export default function DashboardHero() {
             >
               {item.value}
             </p>
-            <p className="mt-2 text-sm">{item.subLabel}</p>
+            <p className="mt-2 text-sm text-cream-bg font-medium">{item.subLabel}</p>
           </div>
         ))}
       </div>

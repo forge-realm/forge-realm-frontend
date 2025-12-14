@@ -1,59 +1,78 @@
-// You do *not* have to use "use client" in every component or page you create in Next.js. 
-// You should only add `"use client"` to the *top* of a component or file if you need to use features that require client-side rendering—such as hooks (`useState`, `useEffect`), browser APIs, or event handlers. 
-// By default, components and pages in Next.js 13+ (with the App Router) are rendered on the server unless you specify "use client" at the top of the file.
-// So, use "use client" only when needed for interaction or client-only features.
+"use client";
 
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Separator } from "./ui/separator";
 import Link from "next/link";
-import Image from "next/image";
-import { raleway } from "@/lib/fonts";
+import React, { useState } from "react";
+
 
 const socialLinks = [
-  { alt: "Twitter logo", src: "https://img.icons8.com/color/F2EDE3/48/twitterx--v1.png", link: "https://x.com/_forgerealm" },
-  { alt: "GitHub logo", src: "https://img.icons8.com/ios-filled/F2EDE3/50/github.png", link: "https://github.com/forge-realm" },
+  {
+    alt: "Twitter logo",
+    src: "https://img.icons8.com/color/F2EDE3/48/twitterx--v1.png",
+    link: "https://x.com/_forgerealm",
+  },
+  {
+    alt: "GitHub logo",
+    src: "https://img.icons8.com/ios-filled/F2EDE3/50/github.png",
+    link: "https://github.com/forge-realm",
+  },
 ];
 
 const exploreLinks = [
   { name: "Marketplace", href: "/marketplace" },
   { name: "Rankings", href: "/rankings" },
-  { name: "Connect a wallet", href: "/auth" }
+  { name: "Connect a wallet", href: "/auth" },
 ];
 
-export default function Footer() {
+// Placeholder logo -- replace as needed or import your logo
+function AppLogo(props: React.HTMLAttributes<HTMLSpanElement>) {
   return (
-    <footer className={`${raleway.className} flex flex-col items-center gap-[30px] px-5 sm:px-8 md:px-12 lg:px-20 xl:px-[195px] py-10 w-full bg-black-bg text-cream-bg dark:bg-cream-bg dark:text-black-bg`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 w-full max-w-[1050px]">
+    <span {...props} style={{ fontWeight: "bold", fontSize: "1.25em" }}>
+      Forge Realm
+    </span>
+  );
+}
+
+export default function Footer() {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Add actual subscribe logic here (API call, show toast, etc.)
+    // alert("Subscribed: " + email);
+    setEmail("");
+  };
+
+  return (
+    <footer
+      className={`font-raleway flex flex-col items-center gap-[30px] px-[5%] py-10 w-full mt-20 bg-midnight-ink text-cream-bg`}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 w-full max-w-[1440px]">
         <div>
           <div className="mb-4">
-            <Link href="/" className={`${raleway.className} mb-4 block font-bold uppercase text-2xl`}>
-              <Image className="md:hidden block" width={35} height={35} src="/assets/icons/logo.png" alt="Forge realm logo" />
-              <span className="md:block hidden">
-                <span className="text-pink-bg">
-                  forge</span> realm
-              </span>
+            <Link href="/" className={`font-raleway mb-4 block font-bold uppercase text-2xl`}>
+              <AppLogo className="text-xl" />
             </Link>
             <p>
               Forge Realm is your portal to collaborative NFT creation, powered by community and creativity.
             </p>
           </div>
-
           <div className="flex flex-col gap-5">
             <div className="flex flex-col items-start gap-[15px]">
-              <p>
-                Connect with me on
-              </p>
-
+              <p>Connect with me on</p>
               <div className="flex items-start gap-2.5">
-                {socialLinks.map((social, index) => (
-                  <Link key={index} href={social.link} target="_blank">
-                  <img
-                    className="w-8 h-8"
-                    alt={social.alt}
-                    src={social.src}
-                  />
-                  </Link>
+                {socialLinks.map((social, idx) => (
+                  <a
+                    key={idx}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className="w-8 h-8"
+                      src={social.src}
+                      alt={social.alt}
+                    />
+                  </a>
                 ))}
               </div>
             </div>
@@ -61,16 +80,10 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold md:text-xl text-lg mb-4">
-            Explore
-          </h3>
-
+          <h3 className="font-semibold md:text-xl text-lg mb-4">Explore</h3>
           <nav className="flex flex-col items-start gap-2">
-            {exploreLinks.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href}
-              >
+            {exploreLinks.map((link, idx) => (
+              <Link key={idx} href={link.href}>
                 {link.name}
               </Link>
             ))}
@@ -81,33 +94,38 @@ export default function Footer() {
           <h3 className="mb-4 md:text-xl text-lg font-semibold">
             Join Our Weekly Digest
           </h3>
-
           <div className="w-full">
             <p className="max-w-[330px] mb-5">
               Get exclusive promotions &amp; updates straight to your inbox.
             </p>
-
-            <div className="flex w-full max-w-[420px] h-auto sm:h-[60px] items-stretch sm:items-center gap-3 pr-2 rounded-[8px]">
-              <Input
-                className="flex-1 h-[50px] w-full"
+            <form
+              className="flex w-full max-w-[420px] h-auto sm:h-[60px] items-stretch sm:items-center gap-3 pr-2 rounded-[8px]"
+              onSubmit={handleSubscribe}
+            >
+              <input
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                className="flex-1 h-[50px] w-full bg-[#19191a] text-cream-bg rounded-lg px-4 focus:outline-none border-none placeholder:text-[#a9a9a9]"
                 placeholder="Enter your email here"
+                type="email"
+                autoComplete="email"
+                required
               />
-
-              <Button className="h-[50px]">
+              <button className="h-[50px] bg-pink-bg text-white px-6 rounded-lg font-semibold hover:bg-btn-bg transition" type="submit">
                 Subscribe
-              </Button>
-            </div>
+              </button>
+            </form>
           </div>
         </div>
       </div>
-
-      {/* <div className="flex flex-col items-start gap-5 w-full max-w-[1050px]">
-        <Separator className="w-full bg-[#858584]" />
-
-        <p className="font-caption-work-sans font-(--caption-work-sans-font-weight) text-cream-bg text-(length:--caption-work-sans-font-size) tracking-(--caption-work-sans-letter-spacing) leading-(--caption-work-sans-line-height) [font-style:var(--caption-work-sans-font-style)]">
+      {/*
+      <div className="flex flex-col items-start gap-5 w-full max-w-[1050px] mt-8">
+        <div className="w-full h-[1px] bg-[#858584]" />
+        <p className="font-caption-work-sans text-cream-bg text-sm tracking-wide leading-snug">
           Ⓒ NFT Market. Use this template freely.
         </p>
-      </div> */}
+      </div>
+      */}
     </footer>
   );
-};
+}
