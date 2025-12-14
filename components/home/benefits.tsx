@@ -77,13 +77,13 @@ export default function Benefits() {
         {benefits.map((benefit) => (
           <div
             key={benefit.id}
-            className="benefit-card bg-midnight-ink rounded-2xl p-6 md:p-8 border border-border-card hover:border-pink-bg transition-all duration-300 hover:scale-105 shadow-lg w-[350px]"
+            className="benefit-card bg-midnight-ink rounded-2xl p-6 md:p-8 border border-border-card hover:border-pink-bg transition-all duration-300 hover:scale-105 shadow-lg w-[350px] min-h-[310px]"
           >
             <div className="w-16 h-16 rounded-xl bg-pink-bg/20 flex items-center justify-center mb-6">
               <benefit.Icon className="text-3xl text-pink-bg" size={32} />
             </div>
             <h3 className="text-2xl font-bold mb-3">{benefit.title}</h3>
-            <p className="text-light-ash text-base leading-relaxed">{benefit.description}</p>
+            <p className="text-cream-bg text-base leading-relaxed">{benefit.description}</p>
           </div>
         ))}
       </div>

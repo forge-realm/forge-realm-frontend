@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./logo";
+import { usePushWalletContext, PushUI } from "@pushchain/ui-kit";
 
 
 // Replace with a hamburger icon of your choice or any SVG
@@ -27,12 +28,13 @@ function HamburgerIcon({ size = 24 }: { size?: number }) {
 const navigationItems = [
   { label: "Marketplace", url: "/coming-soon" },
   { label: "Rankings", url: "/coming-soon" },
-  { label: "Dashboard", url: "/coming-soon" }
+  { label: "Dashboard", url: "/dashboard" }
 ];
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const pathname = usePathname();
+  const {connectionStatus} = usePushWalletContext()
 
   return (
     <nav className="flex items-center justify-between text-parchment-white px-[5%] py-4 font-raleway">
@@ -45,14 +47,32 @@ export default function Navbar() {
           <ul className="flex items-center gap-2">
             {navigationItems.map((item) => (
               <li key={item.label}>
-                <Link
-                  href={item.url}
-                  className={`px-4 w-fit text-center hover:text-pink-bg ${
-                    pathname === item.url ? "text-pink-bg" : ""
-                  }`}
-                >
-                  {item.label}
-                </Link>
+                {(item.label === "Dashboard")
+                  ? (
+                    connectionStatus == PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED // naive wallet check
+                        ? (
+                            <Link
+                              href={item.url}
+                              className={`px-4 w-fit text-center hover:text-pink-bg ${
+                                pathname === item.url ? "text-pink-bg" : ""
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          )
+                        : null
+                    )
+                  : (
+                      <Link
+                        href={item.url}
+                        className={`px-4 w-fit text-center hover:text-pink-bg ${
+                          pathname === item.url ? "text-pink-bg" : ""
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )
+                }
               </li>
             ))}
           </ul>
@@ -62,7 +82,7 @@ export default function Navbar() {
       {/* Connect Wallet Button (Desktop, optionally update link) */}
       <div className="auth-button w-fit px-4 md:flex hidden items-center">
         <Link
-          href="/coming-soon"
+          href="/auth"
           aria-label="Connect your wallet to get started"
           role="button"
           tabIndex={0}
