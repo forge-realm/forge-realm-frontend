@@ -1,6 +1,5 @@
 "use client"
 import { PlusIcon } from "lucide-react";
-import { Button } from "../ui/button";
 import { JSX, useEffect } from "react";
 import { usePushWalletContext, PushUniversalAccountButton } from "@pushchain/ui-kit";
 // import { useNavigate } from "react-router-dom";
@@ -85,12 +84,12 @@ export const UserDetails = (): JSX.Element => {
           </div>
 
           <div className="inline-flex items-center justify-end gap-5">
-            <Button className="h-auto items-center justify-center gap-3 px-[25px] py-[12px] rounded-[12px] border-2 border-solid border-[#a259ff] transition-all duration-300 ease-[ease] bg-transparent hover:bg-[#a259ff]/10">
+            <button className="h-auto items-center justify-center gap-3 px-[25px] py-[12px] rounded-[12px] border-2 border-solid border-[#a259ff] transition-all duration-300 ease-[ease] bg-transparent hover:bg-[#a259ff]/10">
               <PlusIcon className="w-5 h-5" />
               <span className="font-['Work_Sans',Helvetica] font-semibold text-[#ffffff] text-base text-center tracking-[0] leading-[22.4px] whitespace-nowrap">
                 Follow
               </span>
-            </Button>
+            </button>
             <PushUniversalAccountButton />
           </div>
         </div>
