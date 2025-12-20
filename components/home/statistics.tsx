@@ -3,33 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { raleway } from "@/lib/fonts";
 import { LineChart, Users, Layers, Folder } from "lucide-react";
-
-const stats = [
-  {
-    label: "Total Volume",
-    value: 12500,
-    suffix: " ETH",
-    icon: LineChart,
-  },
-  {
-    label: "Active Users",
-    value: 45000,
-    suffix: "+",
-    icon: Users,
-  },
-  {
-    label: "NFTs Minted",
-    value: 125000,
-    suffix: "+",
-    icon: Layers,
-  },
-  {
-    label: "Collections",
-    value: 250,
-    suffix: "+",
-    icon: Folder,
-  },
-];
+import { useAppSelector } from "@/lib/hooks";
 
 function formatNumber(num: number) {
   if (num >= 1_000_000) {
@@ -42,14 +16,54 @@ function formatNumber(num: number) {
 }
 
 export default function Statistics() {
+  const totalBalance = Number(useAppSelector((state) => state.overview.totalBalance));
+  const nftsMinted = Number(useAppSelector((state) => state.overview.nftsMinted));
+  const activeUsers = Number(useAppSelector((state) => state.overview.activeUsers));
+  const totalCollections = Number(useAppSelector((state) => state.overview.totalCollections));
+
+  const stats = [
+    {
+      label: "Total Volume",
+      value: totalBalance,
+      suffix: " ETH",
+      icon: LineChart,
+    },
+    {
+      label: "Active Users",
+      value: activeUsers,
+      suffix: "+",
+      icon: Users,
+    },
+    {
+      label: "NFTs Minted",
+      value: nftsMinted,
+      suffix: "+",
+      icon: Layers,
+    },
+    {
+      label: "Collections",
+      value: totalCollections,
+      suffix: "+",
+      icon: Folder,
+    },
+  ];
+
   const [animatedValues, setAnimatedValues] = useState(stats.map(() => 0));
   const intervalRefs = useRef<(NodeJS.Timeout | number)[]>([]);
 
   useEffect(() => {
+    // Clear any existing animations
+    intervalRefs.current.forEach((id) => clearTimeout(id as NodeJS.Timeout));
+    intervalRefs.current = [];
+
+    // Reset animated values to 0 for new animation
+    setAnimatedValues(stats.map(() => 0));
+
     stats.forEach((stat, index) => {
       setTimeout(() => {
         let current = 0;
         const increment = stat.value / (2000 / 16);
+
         function tick() {
           current += increment;
           setAnimatedValues((prev) => {
@@ -73,7 +87,7 @@ export default function Statistics() {
     return () => {
       intervalRefs.current.forEach((id) => clearTimeout(id as NodeJS.Timeout));
     };
-  }, []);
+  }, [totalBalance, activeUsers, nftsMinted, totalCollections]); // ✅ Track actual values
 
   return (
     <section

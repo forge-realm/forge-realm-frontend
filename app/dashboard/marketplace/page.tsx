@@ -24,12 +24,12 @@ export default function MarketplacePage() {
   );
 
   return (
-    <div className="flex flex-col w-full min-h-screen pt-28 pb-12 px-4 md:px-10 bg-gray-50">
+    <div className="flex flex-col w-full min-h-screen pt-28 pb-12 px-4 md:px-10 bg-soft-charcoal">
       {/* Header */}
       <div className="mb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-1">NFT Marketplace</h1>
-          <p className="text-gray-500 text-base">Discover, collect, and buy unique NFTs from creators.</p>
+          <h1 className="text-3xl font-bold text-parchment-white mb-1">NFT Marketplace</h1>
+          <p className="text-cream-bg text-base">Discover, collect, and buy unique NFTs from creators.</p>
         </div>
         <div className="flex gap-2 w-full md:w-auto">
           <input

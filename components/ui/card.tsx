@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ nft }) => {
       </span>
     ) : nft.status === "Owned"
     ? (
-      <span className="absolute top-3 left-3 px-3 py-1 text-xs bg-gray-300 rounded-full">
+      <span className="absolute top-3 left-3 px-3 py-1 text-xs bg-cream-bg rounded-full">
         Owned
       </span>
     ) : null;
@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = ({ nft }) => {
   ].join(" ");
 
   return (
-    <div className="bg-midnight-ink w-[350px] h-[450px] rounded-2xl shadow-sm hover:shadow-lg transition p-4 flex flex-col">
+    <div className="bg-midnight-ink w-[350px] h-[450px] rounded-2xl shadow-sm hover:shadow-lg transition p-4 flex flex-col font-raleway">
       <div className="relative w-full aspect-square mb-3 overflow-hidden rounded-xl">
         <img
           src={nft.image}
@@ -37,9 +37,9 @@ const Card: React.FC<CardProps> = ({ nft }) => {
         />
         {statusBadge}
       </div>
-      <h2 className="font-semibold text-lg mb-1">{nft.name}</h2>
+      <h2 className="font-extrabold text-parchment-white text-lg mb-1">{nft.name}</h2>
       <div className="flex items-center justify-between mb-2 text-sm">
-        <span className="text-cream-bg">
+        <span className="text-cream-bg font-medium">
           By {nft.creator.name}
         </span>
         <span className="font-bold text-pink-bg text-lg">

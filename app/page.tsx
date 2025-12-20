@@ -2,8 +2,8 @@
 
 import { useAppDispatch } from "@/lib/hooks";
 import { useAppSelector } from "@/lib/hooks";
-import { setTheme } from "@/lib/features/ui/themeSlice";
-import { Theme } from "@/interface/ui";
+// import { setTheme } from "@/lib/features/ui/themeSlice";
+// import { Theme } from "@/interface/ui";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/home/hero";
 import Highlight from "@/components/home/highlight";
@@ -17,6 +17,7 @@ import { setLoadingState } from "@/lib/features/ui/uiSlice";
 import Statistics from "@/components/home/statistics";
 import FeaturedCollections from "@/components/home/featured-collections";
 import Benefits from "@/components/home/benefits";
+import { fetchAllUsers, fetchContractBalance, fetchNftsMinted } from "@/lib/features/overview/overviewSlice";
 
 export default function Home() {
   // const [file, setFile] = useState<File>();
@@ -25,7 +26,8 @@ export default function Home() {
   const { universalAccount } = usePushWalletContext()
 
   const dispatch = useAppDispatch();
-  const theme = useAppSelector((state) => state.theme.theme)
+  // const theme = useAppSelector((state) => state.theme.theme)
+  // const totalBalance = useAppSelector((state) => state.overview.totalBalance);
 
   // const uploadFile = async () => {
   //   setUrl("")
@@ -61,11 +63,17 @@ export default function Home() {
 
 
   useEffect(() => {
-    if(universalAccount) {
+    if (universalAccount) {
       dispatch(walletConnected(universalAccount.address))
       dispatch(setLoadingState('wallet-connected'))
     }
   }, [universalAccount])
+
+  useEffect(() => {
+    dispatch(fetchContractBalance());
+    dispatch(fetchNftsMinted());
+    dispatch(fetchAllUsers());
+  }, [])
 
   return (
     <main className="min-h-screen">
