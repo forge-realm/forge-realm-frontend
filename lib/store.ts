@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import themeReducer from './features/ui/themeSlice';
 import uiReducer from './features/ui/uiSlice';
 import userReducer from './features/user/userSlice';
+import overviewReducer from './features/overview/overviewSlice';
 
 export const makeStore = () => {
   return configureStore({
@@ -9,6 +10,7 @@ export const makeStore = () => {
       theme: themeReducer,
       ui: uiReducer,
       user: userReducer,
+      overview: overviewReducer,
     },
   })
 }

@@ -13,6 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning={true}
         className={`${raleway.className} ${inter.className} antialiased`}
       >
         <ReduxProvider>
