@@ -3,6 +3,7 @@ import { PushChainProviders } from "./providers/pushchain";
 import ReduxProvider from "./providers/redux-toolkit";
 import ThemeProvider from "./providers/theme";
 import { raleway, inter } from "@/lib/fonts";
+import { Analytics } from "@vercel/analytics/next";
 
 
 export default function RootLayout({
@@ -20,6 +21,7 @@ export default function RootLayout({
           <PushChainProviders>
             <ThemeProvider>
               {children}
+              <Analytics />
             </ThemeProvider>
           </PushChainProviders>
         </ReduxProvider>

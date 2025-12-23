@@ -12,6 +12,7 @@
     "@google/genai": "^1.30.0",
     "@pushchain/ui-kit": "^4.0.1",
     "@reduxjs/toolkit": "^2.10.1",
+    "@vercel/analytics": "^1.6.1",
     "ethers": "^6.16.0",
     "html-to-image": "^1.11.13",
     "lucide-react": "^0.554.0",
