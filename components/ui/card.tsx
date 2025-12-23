@@ -1,5 +1,6 @@
 import React from "react";
 import type { Nft } from "@/data/nft";
+import { truncateWalletAddress } from "@/utils/forge-realm";
 
 type CardProps = {
   nft: Nft;
@@ -8,12 +9,12 @@ type CardProps = {
 const Card: React.FC<CardProps> = ({ nft }) => {
   const statusBadge = nft.status === "On Sale"
     ? (
-      <span className="absolute top-3 left-3 px-3 py-1 text-xs bg-pink-bg text-parchment-white rounded-full">
+      <span className="absolute top-3 left-3 px-3 py-1 text-xs bg-pink-bg text-parchment-white rounded-full font-semibold">
         On Sale
       </span>
     ) : nft.status === "Owned"
     ? (
-      <span className="absolute top-3 left-3 px-3 py-1 text-xs bg-cream-bg rounded-full">
+      <span className="absolute top-3 left-3 px-3 py-1 text-xs bg-cream-bg text-midnight-ink rounded-full font-semibold">
         Owned
       </span>
     ) : null;
@@ -40,7 +41,7 @@ const Card: React.FC<CardProps> = ({ nft }) => {
       <h2 className="font-extrabold text-parchment-white text-lg mb-1">{nft.name}</h2>
       <div className="flex items-center justify-between mb-2 text-sm">
         <span className="text-cream-bg font-medium">
-          By {nft.creator.name}
+          By {truncateWalletAddress(nft.creator.wallet)}
         </span>
         <span className="font-bold text-pink-bg text-lg">
           {nft.price} ETH
@@ -48,9 +49,9 @@ const Card: React.FC<CardProps> = ({ nft }) => {
       </div>
       <button
         disabled={buttonDisabled}
-        className={buttonClasses}
+        className={`${buttonClasses}`}
       >
-        {nft.status === "On Sale" ? "Buy Now" : "Not Available"}
+        {nft.status === "On Sale" ? "Coming soon" : "Coming soon"}
       </button>
     </div>
   );
