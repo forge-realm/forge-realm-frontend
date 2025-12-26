@@ -41,7 +41,7 @@ const Card: React.FC<CardProps> = ({ nft }) => {
       <h2 className="font-extrabold text-parchment-white text-lg mb-1">{nft.name}</h2>
       <div className="flex items-center justify-between mb-2 text-sm">
         <span className="text-cream-bg font-medium">
-          By {truncateWalletAddress(nft.creator.wallet)}
+          By {truncateWalletAddress(nft.owner.wallet)}
         </span>
         <span className="font-bold text-pink-bg text-lg">
           {nft.price} ETH
