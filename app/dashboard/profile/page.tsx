@@ -2,7 +2,7 @@
 
 import Card from "@/components/ui/card";
 import { useEffect, useState } from "react";
-import { nfts } from "@/data/nft";
+import { Nft, nfts } from "@/data/nft";
 import Link from "next/link";
 import { useAppSelector } from "@/lib/hooks";
 
@@ -25,10 +25,12 @@ const games = [
 
 
 export default function ProfilePage() {
-  const [tab, setTab] = useState<"base" | "assets">("base");
+  const [tab, setTab] = useState<"base" | "assets" | "composites">("base");
   const [selectedGame, setSelectedGame] = useState("all");
 
   const userBaseNfts = useAppSelector((state) => state.user.userBaseNfts);
+  const userAssetNfts = useAppSelector((state) => state.user.userAssetNfts);
+  const userCompositeNfts: Nft[] = [];
 
   // To filter NFTs by game:
   // const filteredNfts = selectedGame === "all" ? nfts : nfts.filter(nft => nft.gameId === selectedGame);
@@ -130,57 +132,148 @@ export default function ProfilePage() {
                 : "border border-pink-bg text-pink-bg"
                 }`}
             >
-              Assets
+              Asset NFTs
             </button>
-          </div>
-
-          <div>
             <button
-              onClick={() => setTab("assets")}
-              className={`px-5 py-2 text-base font-semibold whitespace-nowrap rounded-full transition ${tab === "assets"
+              onClick={() => setTab("composites")}
+              className={`px-5 block py-2 text-base font-semibold whitespace-nowrap rounded-full transition ${tab === "composites"
                 ? "border border-pink-bg bg-pink-bg text-cream-bg"
                 : "border border-pink-bg text-pink-bg"
                 }`}
             >
-              Compose NFT
+              Composite NFTs
             </button>
+          </div>
+
+          <div>
+            <Link
+              href="/dashboard/compose-nft"
+              className={`px-5 py-2 h-[45px] flex items-center text-base font-semibold whitespace-nowrap rounded-full transition border border-pink-bg bg-parchment-white cursor-pointer hover:bg-cream-bg hover:text-btn-bg text-pink-bg`}
+              aria-label="Compose a new NFT"
+              title="Compose NFT"
+              prefetch={false}
+            >
+              <span>Compose NFT</span>
+            </Link>
           </div>
         </div>
 
         {/* Tab content */}
         <div className="rounded-xl text-parchment-white py-6 shadow w-full min-h-[250px]">
           {tab === "base" && (
-            <div className="flex flex-wrap mb-5 sm:mb-6 gap-8">
-              <div className="w-full flex sm:items-center sm:justify-between mb-5 sm:mb-6 gap-4">
-                <h3 className="text-lg md:text-xl font-bold">Collected NFTs</h3>
-                <div className="flex items-center gap-2">
-                  <label htmlFor="game-select" className="text-sm font-medium text-cream-bg">
-                    Filter by Game:
-                  </label>
-                  <select
-                    id="game-select"
-                    className="px-3 py-1.5 rounded-md bg-midnight-ink text-parchment-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-bg transition"
-                    value={selectedGame}
-                    onChange={e => setSelectedGame(e.target.value)}
-                  >
-                    {games.map(game => (
-                      <option value={game.id} key={game.id}>
-                        {game.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+            <>
+              {
+                userBaseNfts.length > 0 ? (
+                  <div className="flex flex-wrap mb-5 sm:mb-6 gap-6">
+                    <div className="w-full flex sm:items-center sm:justify-between mb-5 sm:mb-6 gap-4">
+                      <h3 className="text-lg md:text-xl font-bold">Collected NFTs</h3>
+                      <div className="flex items-center gap-2">
+                        <label htmlFor="game-select" className="text-sm font-medium text-cream-bg">
+                          Filter by Game:
+                        </label>
+                        <select
+                          id="game-select"
+                          className="px-3 py-1.5 rounded-md bg-midnight-ink text-parchment-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-bg transition"
+                          value={selectedGame}
+                          onChange={e => setSelectedGame(e.target.value)}
+                        >
+                          {games.map(game => (
+                            <option value={game.id} key={game.id}>
+                              {game.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
 
-              {userBaseNfts?.map((nft, idx) => (
-                <Card nft={nft} key={idx} />
-              ))}
-            </div>
+                    {userBaseNfts.map((nft, idx) => (
+                      <Card nft={nft} key={idx} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center min-h-[200px] text-cream-bg">
+                    <p className="text-base sm:text-lg">No recent activity yet.</p>
+                  </div>
+                )
+              }
+            </>
           )}
           {tab === "assets" && (
-            <div className="flex flex-col items-center justify-center min-h-[200px] text-cream-bg">
-              <p className="text-base sm:text-lg">No recent activity yet.</p>
-            </div>
+            <>
+              {
+                userAssetNfts.length > 0 ? (
+                  <div className="flex flex-wrap mb-5 sm:mb-6 gap-6">
+                    <div className="w-full flex sm:items-center sm:justify-between mb-5 sm:mb-6 gap-4">
+                      <h3 className="text-lg md:text-xl font-bold">Collected NFTs</h3>
+                      <div className="flex items-center gap-2">
+                        <label htmlFor="game-select" className="text-sm font-medium text-cream-bg">
+                          Filter by Game:
+                        </label>
+                        <select
+                          id="game-select"
+                          className="px-3 py-1.5 rounded-md bg-midnight-ink text-parchment-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-bg transition"
+                          value={selectedGame}
+                          onChange={e => setSelectedGame(e.target.value)}
+                        >
+                          {games.map(game => (
+                            <option value={game.id} key={game.id}>
+                              {game.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    {userAssetNfts.map((nft, idx) => (
+                      <Card nft={nft} key={idx} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center min-h-[200px] text-cream-bg">
+                    <p className="text-base sm:text-lg">No recent activity yet.</p>
+                  </div>
+                )
+              }
+            </>
+          )}
+
+          {tab === "composites" && (
+            <>
+              {
+                userCompositeNfts.length > 0 ? (
+                  <div className="flex flex-wrap mb-5 sm:mb-6 gap-6">
+                    <div className="w-full flex sm:items-center sm:justify-between mb-5 sm:mb-6 gap-4">
+                      <h3 className="text-lg md:text-xl font-bold">Collected NFTs</h3>
+                      <div className="flex items-center gap-2">
+                        <label htmlFor="game-select" className="text-sm font-medium text-cream-bg">
+                          Filter by Game:
+                        </label>
+                        <select
+                          id="game-select"
+                          className="px-3 py-1.5 rounded-md bg-midnight-ink text-parchment-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-bg transition"
+                          value={selectedGame}
+                          onChange={e => setSelectedGame(e.target.value)}
+                        >
+                          {games.map(game => (
+                            <option value={game.id} key={game.id}>
+                              {game.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    {userCompositeNfts.map((nft, idx) => (
+                      <Card nft={nft} key={idx} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center min-h-[200px] text-cream-bg">
+                    <p className="text-base sm:text-lg">No recent activity yet.</p>
+                  </div>
+                )
+              }
+            </>
           )}
         </div>
       </div>

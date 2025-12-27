@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({ nft }) => {
 
   return (
     <div className="bg-midnight-ink w-[350px] h-[450px] rounded-2xl shadow-sm hover:shadow-lg transition p-4 flex flex-col font-raleway">
-      <div className="relative w-full aspect-square mb-3 overflow-hidden rounded-xl">
+      <div className="relative w-full p-4 aspect-square mb-3 overflow-hidden rounded-xl">
         <img
           src={nft.image}
           alt={nft.name}

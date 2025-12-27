@@ -5,7 +5,7 @@ import DashboardMarket from "@/components/dashboard/market";
 import { useAppDispatch } from "@/lib/hooks";
 import { usePushWalletContext } from "@pushchain/ui-kit";
 import { useEffect } from "react";
-import { getUserBaseNfts } from "@/lib/features/user/userSlice";
+import { getUserAssetNfts, getUserBaseNfts } from "@/lib/features/user/userSlice";
 
 export default function DashboardPage() {
   const {universalAccount, connectionStatus} = usePushWalletContext();
@@ -15,6 +15,7 @@ export default function DashboardPage() {
   useEffect(() => {
     if(connectionStatus === "connected" && universalAccount) {
       dispatch(getUserBaseNfts(universalAccount.address))
+      dispatch(getUserAssetNfts(universalAccount.address));
     }
   }, [universalAccount, connectionStatus])
   return (

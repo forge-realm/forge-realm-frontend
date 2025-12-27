@@ -51,7 +51,7 @@ export default function DashboardHero() {
           </Link>
           <Link
             href="/dashboard/profile"
-            className="px-6 py-3 bg-white hover:bg-cream-bg transition-all text-pink-bg border border-pink-bg text-base font-semibold rounded-full shadow-md"
+            className="px-6 py-3 bg-parchment-white hover:bg-cream-bg transition-all text-pink-bg border border-pink-bg text-base font-semibold rounded-full shadow-md"
           >
             View Profile
           </Link>
