@@ -14,6 +14,7 @@ const sidebarNav = [
       { name: "Dashboard", href: "/dashboard" },
       { name: "Inbox", href: "/dashboard/inbox" },
       { name: "Wallet", href: "/dashboard/wallet" },
+      { name: "Admin", href: "/dashboard/admin" },
     ]
   },
   {
